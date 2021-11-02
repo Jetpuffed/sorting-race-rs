@@ -1,6 +1,6 @@
 use std::cmp::PartialOrd;
 
-pub fn insertion_sort<T: PartialOrd>(data: &mut [T])
+pub fn insertion_sort<T: PartialOrd>(data: &mut Vec<T>)
 {
     let mut i: usize = 1;
 
