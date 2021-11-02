@@ -50,3 +50,24 @@ pub fn selection_sort<T: PartialOrd>(data: &mut Vec<T>)
         }
     }
 }
+
+pub fn bubble_sort<T: PartialOrd>(data: &mut Vec<T>)
+{
+    let mut max: usize = data.len();
+
+    while max >= 1
+    {
+        let mut min: usize = 0;
+
+        for i in 1 .. min.wrapping_sub(1)
+        {
+            if data[i - 1] > data[i]
+            {
+                data.swap(i - 1, i);
+                min = i;
+            }
+        }
+
+        max = min;
+    }
+}
