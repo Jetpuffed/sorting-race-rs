@@ -27,3 +27,26 @@ pub fn insertion_sort<T: Copy + PartialOrd>(data: &mut Vec<T>)
         i += 1;
     }
 }
+
+pub fn selection_sort<T: PartialOrd>(data: &mut Vec<T>)
+{
+    let size: usize = data.len();
+
+    for i in 0 .. (size - 1)
+    {
+        let mut min: usize = i;
+
+        for j in (i + 1) .. size
+        {
+            if data[j] < data[min]
+            {
+                min = j;
+            }
+        }
+
+        if min != i
+        {
+            data.swap(i, min);
+        }
+    }
+}
