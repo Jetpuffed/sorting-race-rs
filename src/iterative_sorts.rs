@@ -1,73 +1,93 @@
-use std::cmp::PartialOrd;
+// =================
+//  Insertion Sorts
+// =================
 
-/// Iterates and selects an element from the vector, comparing it against
-/// the current largest value in the sorted list behind it. If the value
-/// is larger, it moves on to the next element. If the value is smaller,
-/// it then searches for the correct position to insert that value, shifting
-/// all larger elements to the right by one to make room.
-pub fn insertion_sort<T: Copy + PartialOrd>(data: &mut Vec<T>)
-{
-    // Time Complexity => O(n) || O(n^2)
-    // Space Complexity => O(1)
+pub fn cube_sort() {}
 
-    let mut i: usize = 1;
+pub fn insertion_sort() {}
 
-    while i < data.len()
-    {
-        let x: T = data[i];
-        let mut j: usize = i - 1;
+pub fn library_sort() {}
 
-        while (j >= 0) && (data[j] > x)
-        {
-            data.swap(j + 1, j);
-            j = j.saturating_sub(1);
-        }
+pub fn shell_sort() {}
 
-        data[j + 1] = x;
-        i += 1;
-    }
-}
+pub fn tree_sort() {}
 
-pub fn selection_sort<T: PartialOrd>(data: &mut Vec<T>)
-{
-    let size: usize = data.len();
+// =================
+//  Selection Sorts
+// =================
 
-    for i in 0 .. (size - 1)
-    {
-        let mut min: usize = i;
+pub fn cycle_sort() {}
 
-        for j in (i + 1) .. size
-        {
-            if data[j] < data[min]
-            {
-                min = j;
-            }
-        }
+pub fn heap_sort() {}
 
-        if min != i
-        {
-            data.swap(i, min);
-        }
-    }
-}
+pub fn selection_sort() {}
 
-pub fn bubble_sort<T: PartialOrd>(data: &mut Vec<T>)
-{
-    let mut max: usize = data.len();
+pub fn smooth_sort() {}
 
-    while max >= 1
-    {
-        let mut min: usize = 0;
+pub fn strand_sort() {}
 
-        for i in 1 .. min.wrapping_sub(1)
-        {
-            if data[i - 1] > data[i]
-            {
-                data.swap(i - 1, i);
-                min = i;
-            }
-        }
+pub fn tournament_sort() {}
 
-        max = min;
-    }
-}
+// ===============
+//  Merging Sorts
+// ===============
+
+pub fn merge_sort() {}
+
+pub fn merge_sort_in_place() {}
+
+// ==================
+//  Exchanging Sorts
+// ==================
+
+pub fn bubble_sort() {}
+
+pub fn cocktail_shaker_sort() {}
+
+pub fn comb_sort() {}
+
+pub fn exchange_sort() {}
+
+pub fn gnome_sort() {}
+
+pub fn odd_even_sort() {}
+
+// =============
+//  Mixed Sorts
+// =============
+
+pub fn block_sort() {}
+
+pub fn intro_sort() {}
+
+pub fn patience_sort() {}
+
+pub fn tim_sort() {}
+
+// =============
+//  Other Sorts
+// =============
+
+pub fn quick_sort() {}
+
+// ======================
+//  Non-comparison Sorts
+// ======================
+
+pub fn bucket_sort() {}
+
+pub fn burst_sort() {}
+
+pub fn counting_sort() {}
+
+pub fn flash_sort() {}
+
+pub fn lsd_radix_sort() {}
+
+pub fn msd_radix_sort() {}
+
+pub fn pigeonhole_sort() {}
+
+pub fn postman_sort() {}
+
+pub fn spread_sort() {}

@@ -1,28 +1,93 @@
-use std::cmp::PartialOrd;
+// =================
+//  Insertion Sorts
+// =================
 
-/// Recursively iterates and selects an element from the vector, comparing it
-/// against the current largest value in the sorted list behind it. If the
-/// value is larger, it moves on to the next element. If the value is smaller,
-/// it then searches for the correct position to insert that value, shifting
-/// all larger elements to the right by one to make room.
-pub fn insertion_sort<T: Copy + PartialOrd>(data: &mut Vec<T>, n: usize)
-{
-    // Time Complexity => O(n) || O(n^2)
-    // Space Complexity => O(n)
+pub fn cube_sort() {}
 
-    if n > 0
-    {
-        insertion_sort::<T>(data, n - 1);
+pub fn insertion_sort() {}
 
-        let x: T = data[n];
-        let mut j: usize = n - 1;
+pub fn library_sort() {}
 
-        while (j >= 0) && (data[j] > x)
-        {
-            data.swap(j + 1, j);
-            j = j.saturating_sub(1);
-        }
+pub fn shell_sort() {}
 
-        data[j + 1] = x;
-    }
-}
+pub fn tree_sort() {}
+
+// =================
+//  Selection Sorts
+// =================
+
+pub fn cycle_sort() {}
+
+pub fn heap_sort() {}
+
+pub fn selection_sort() {}
+
+pub fn smooth_sort() {}
+
+pub fn strand_sort() {}
+
+pub fn tournament_sort() {}
+
+// ===============
+//  Merging Sorts
+// ===============
+
+pub fn merge_sort() {}
+
+pub fn merge_sort_in_place() {}
+
+// ==================
+//  Exchanging Sorts
+// ==================
+
+pub fn bubble_sort() {}
+
+pub fn cocktail_shaker_sort() {}
+
+pub fn comb_sort() {}
+
+pub fn exchange_sort() {}
+
+pub fn gnome_sort() {}
+
+pub fn odd_even_sort() {}
+
+// =============
+//  Mixed Sorts
+// =============
+
+pub fn block_sort() {}
+
+pub fn intro_sort() {}
+
+pub fn patience_sort() {}
+
+pub fn tim_sort() {}
+
+// =============
+//  Other Sorts
+// =============
+
+pub fn quick_sort() {}
+
+// ======================
+//  Non-comparison Sorts
+// ======================
+
+pub fn bucket_sort() {}
+
+pub fn burst_sort() {}
+
+pub fn counting_sort() {}
+
+pub fn flash_sort() {}
+
+pub fn lsd_radix_sort() {}
+
+pub fn msd_radix_sort() {}
+
+pub fn pigeonhole_sort() {}
+
+pub fn postman_sort() {}
+
+pub fn spread_sort() {}
