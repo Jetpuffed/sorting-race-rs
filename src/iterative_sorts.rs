@@ -1,10 +1,31 @@
+use std::cmp::PartialOrd;
+
 // =================
 //  Insertion Sorts
 // =================
 
 pub fn cube_sort() {}
 
-pub fn insertion_sort() {}
+pub fn insertion_sort<T: PartialOrd>(mut input: Vec<T>)
+{
+    let mut i = 1;
+
+    while i < input.len()
+    {
+        println!("{}", i);
+        let x = unsafe { std::ptr::read(&input[i]) };
+        let mut j = i - 1;
+
+        while input[j] > x
+        {
+            input.swap(j, j + 1);
+            j = j.saturating_sub(1);
+        }
+
+        input[j + 1] = x;
+        i += 1;
+    }
+}
 
 pub fn library_sort() {}
 
