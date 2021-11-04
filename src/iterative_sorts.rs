@@ -41,7 +41,28 @@ pub fn cycle_sort() {}
 
 pub fn heap_sort() {}
 
-pub fn selection_sort() {}
+pub fn selection_sort<T: PartialOrd>(mut input: Vec<T>)
+{
+    let length = input.len();
+
+    for i in 0 .. length - 1
+    {
+        let mut min = i;
+
+        for j in i + 1 .. length
+        {
+            if input[j] < input[min]
+            {
+                min = j;
+            }
+        }
+
+        if i != min
+        {
+            input.swap(i, min);
+        }
+    }
+}
 
 pub fn smooth_sort() {}
 
