@@ -37,8 +37,8 @@ pub fn generate_data() -> Vec<u32>
     // Number of threads to use for generating data
     let threads: usize = get_logical_cores() - 1;
 
-    // total_size * 32 = 4 GiB
-    let total_size: usize = 134217728;
+    // total_size * 32 = 1 MiB
+    let total_size: usize = 32768;
 
     // If running on a single-core machine, fall back to single threaded mode
     if threads == 0
