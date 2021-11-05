@@ -1,5 +1,4 @@
 use std::cmp::PartialOrd;
-use std::vec;
 
 // =================
 //  Insertion Sorts
