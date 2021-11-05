@@ -1,4 +1,5 @@
 use std::cmp::PartialOrd;
+use std::vec;
 
 // =================
 //  Insertion Sorts
@@ -74,7 +75,67 @@ pub fn tournament_sort() {}
 //  Merging Sorts
 // ===============
 
-pub fn merge_sort() {}
+pub fn merge_sort<T: PartialOrd>(input: Vec<T>)
+{
+    let mut output = Vec::with_capacity(input.len());
+    let mut vec_stk = vec![input];
+
+    while let Some(tmp) = vec_stk.pop()
+    {
+        if tmp.len() <= 1
+        {
+            output.push(tmp);
+
+            if output.len() == 2
+            {
+                let (mut tmp_l, mut tmp_r) = (output.remove(0), output.remove(0));
+                let mut tmp_output = Vec::with_capacity(tmp_l.len() + tmp_r.len());
+
+                while !tmp_l.is_empty() && !tmp_r.is_empty()
+                {
+                    if tmp_l.first() <= tmp_r.first()
+                    {
+                        tmp_output.push(tmp_l.remove(0));
+                    }
+                    else
+                    {
+                        tmp_output.push(tmp_r.remove(0));
+                    }
+                }
+
+                while !tmp_l.is_empty()
+                {
+                    tmp_output.push(tmp_l.remove(0));
+                }
+
+                while !tmp_r.is_empty()
+                {
+                    tmp_output.push(tmp_r.remove(0));
+                }
+
+                output.push(tmp_output);
+            }
+
+            continue;
+        }
+
+        let (mut tmp_l, mut tmp_r) = (Vec::new(), Vec::new());
+
+        for (i, val) in tmp.iter().enumerate()
+        {
+            if i < tmp.len() / 2
+            {
+                tmp_l.push(unsafe { std::ptr::read(val) });
+            }
+            else
+            {
+                tmp_r.push(unsafe { std::ptr::read(val) });
+            }
+        }
+
+        (vec_stk.push(tmp_l), vec_stk.push(tmp_r));
+    }
+}
 
 pub fn merge_sort_in_place() {}
 
