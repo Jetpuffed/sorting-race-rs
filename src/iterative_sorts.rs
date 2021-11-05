@@ -39,7 +39,78 @@ pub fn tree_sort() {}
 
 pub fn cycle_sort() {}
 
-pub fn heap_sort() {}
+pub fn heap_sort<T: PartialOrd>(mut input: Vec<T>)
+{
+    let mut start = (((input.len() - 1) - 1) / 2) as i32;
+    let mut end = input.len() - 1;
+
+    while start >= 0
+    {
+        let mut root = start as usize;
+
+        while (2 * root) + 1 <= end
+        {
+            let child = (2 * root) + 1;
+            let mut swap = root;
+
+            if input[swap] < input[child]
+            {
+                swap = child;
+            }
+
+            if (child + 1 <= end) && (input[swap] < input[child + 1])
+            {
+                swap = child + 1;
+            }
+
+            if swap == root
+            {
+                break;
+            }
+            else
+            {
+                input.swap(root, swap);
+                root = swap;
+            }
+        }
+
+        start -= 1;
+    }
+
+    while end > 0
+    {
+        input.swap(end, 0);
+        end -= 1;
+
+        let mut root = 0;
+
+        while (2 * root) + 1 <= end
+        {
+            let child = (2 * root) + 1;
+            let mut swap = root;
+
+            if input[swap] < input[child]
+            {
+                swap = child;
+            }
+
+            if (child + 1 <= end) && (input[swap] < input[child + 1])
+            {
+                swap = child + 1;
+            }
+
+            if swap == root
+            {
+                break;
+            }
+            else
+            {
+                input.swap(root, swap);
+                root = swap;
+            }
+        }
+    }
+}
 
 pub fn selection_sort<T: PartialOrd>(mut input: Vec<T>)
 {
